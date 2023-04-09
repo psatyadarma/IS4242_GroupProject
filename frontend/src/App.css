@@ -112,6 +112,12 @@ section {
 
 /*---------hero-------------*/
 
+.feedContent {
+  margin-top: 20px;
+  max-height: 900px;
+  max-width: 900px;
+}
+
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -1,7 +1,7 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 from reverseProxy import proxyRequest
-from classifier import classifyImage
+from classifier import classifyImage, gen_frames
 
 MODE = os.getenv('FLASK_ENV')
 DEV_SERVER_URL = 'http://localhost:3000/'
@@ -75,6 +75,7 @@ def gen_frames():
             frame = buffer.tobytes()
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
+'''
 
 # i've used flask for the test web app that i made, i think you can just switch the routes to the one you used in react
 @app.route('/video_feed')
@@ -82,11 +83,8 @@ def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-@app.route('/')
-def index():
-    """Video streaming home page."""
-    return render_template('index.html')
+# @app.route('/')
+# def index():
+#     """Video streaming home page."""
+#     return render_template('index.html')
 
-
-if __name__ == '__main__':
-    app.run(debug=True)'''

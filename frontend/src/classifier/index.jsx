@@ -74,7 +74,11 @@ const Classifier = () => {
               }}
             />
           </h1>
-          <div className='imageUploadInput'>
+          <img className='feedContent'
+            src="http://localhost:5000/video_feed"
+            alt="Video">
+          </img>
+          {/* <div className='imageUploadInput'>
             <input
               type="file"
               accept="image/*"
@@ -91,12 +95,12 @@ const Classifier = () => {
               </Button>
             </label>
             <Button
-                variant="contained"
-                component="span"
-                onClick={clearUserInput}
-                style={{ backgroundColor: '#e0a80d', borderRadius: 50, marginLeft: '20px', border: '2px solid', borderColor: "#e0a80d" }}>
-                Clear
-              </Button>
+              variant="contained"
+              component="span"
+              onClick={clearUserInput}
+              style={{ backgroundColor: '#e0a80d', borderRadius: 50, marginLeft: '20px', border: '2px solid', borderColor: "#e0a80d" }}>
+              Clear
+            </Button>
           </div>
           {imageFile && <img id='recogImage' className='imageUploadPreview' src={imageFile} alt='Upload be predicted' />}
           <div>
@@ -110,7 +114,7 @@ const Classifier = () => {
               </Button>
             }
           </div>
-          <p>The predicted class is: {result}</p>
+          <p>The predicted class is: {result}</p> */}
         </div>
       </section>
     </>
