@@ -3,4 +3,19 @@ IS4242 Intelligent Systems and Techniques Group Project
 Running of ipynb File
 1. Open Google Drive and add the folder "IS4242 Project" to MyDrive.
 2. Open ipynb file and run in Google Colab.
-3. Some of cells especially those model training cells may take more than 7 hours to run.
+3. Some of cells especially those cells involve model training and hyperparameter tuning may take more than 7 hours to run.
+
+Content Structure of ipynb File
+1. Data Exploration
+2. Define common functions required for subsequent model training
+   - Functions for File Movement
+   - Functions for Image Processing
+   - Functions for Cross Validation and Model Training
+   - Functions for Performance Metrics Calculation
+3. Training of 5 CNN models 
+   - Self Constructed CNN (Hyperparameter Tunning using Bayesian Optimisation, Model Training, Model Performance Evaluation)
+   - VGG19 (Hyperparameter Tunning using Bayesian Optimisation, Unfreezing Layers, Model Training, Model Performance Evaluation) 
+   - VGG16, InceptionV3, ResNet50 (Model Training, Model Performance Evaluation) 
+4. LIME for Model Explanability
+   - Compare results of self constructed CNN and VGG19
+   - Look at images from True Positive and True Negative predictions of both models to deduce the important features extract by the models
