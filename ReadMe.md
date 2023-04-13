@@ -1,15 +1,18 @@
 IS4242 Intelligent Systems and Techniques Group Project
 
 Note: Due to the large size of the dataset and models, they have exceeded the limit for storage on GitHub. Therefore, we will provide a link to the external storage location where they can be accessed.
-
-Link to the dataset: https://drive.google.com/drive/folders/1tZ0w1-zcuxzZ95uaLy9zLA9Zvn4dm0D6
-
-Link to the models used: https://drive.google.com/drive/folders/1VKKxMlpr_E7ndMadFKkqE30Jm-mZuaWz
+- Link to the dataset: https://drive.google.com/drive/folders/1tZ0w1-zcuxzZ95uaLy9zLA9Zvn4dm0D6
+- Link to the models used: https://drive.google.com/drive/folders/1VKKxMlpr_E7ndMadFKkqE30Jm-mZuaWz
  
+
 Running of ipynb File
-1. Open Google Drive and add the folder "IS4242 Project" to MyDrive.
-2. Open ipynb file and run in Google Colab.
-3. Some of cells especially those cells involve model training and hyperparameter tuning may take more than 7 hours to run.
+1. Download data from dataset link and save as a folder called "self_collected_Data"
+2. Download models from models link and save as a folder called "models"
+3. Open Google Drive and create a folder called "IS4242 Project" in MyDrive.
+4. Save the image_classification.ipynb, the "model" folder and the "self_collected_Data" folder into "IS4242 Project" folder.
+5. Open ipynb file and run in Google Colab.
+6. Some of cells especially those cells involve model training and hyperparameter tuning may take more than 7 hours to run.
+
 
 Content Structure of ipynb File
 1. Data Exploration
@@ -25,6 +28,7 @@ Content Structure of ipynb File
 4. LIME for Model Explanability
    - Compare results of self constructed CNN and VGG19
    - Look at images from True Positive and True Negative predictions of both models to deduce the important features extract by the models
+
 
 
 Setting up backend
