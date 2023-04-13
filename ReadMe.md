@@ -24,3 +24,18 @@ Content Structure of ipynb File
 4. LIME for Model Explanability
    - Compare results of self constructed CNN and VGG19
    - Look at images from True Positive and True Negative predictions of both models to deduce the important features extract by the models
+
+
+Setting up backend
+1. Install the backend dependencies with pip. Navigate to the backend folder and run the below command:
+pip install -r requirements.txt
+
+Setting up frontend
+1. Install the frontend dependencies with npm. Navigate to the frontend folder and run the below command:
+npm install
+
+Get started
+1. Upload file 'model_vgg19_train1.hdf5' into backend folder
+1. Navigate to the frontend folder
+2. Run the command to start both the backend and the frontend:
+npm run start:server-dev
