@@ -1,15 +1,41 @@
 import React, { useEffect, useRef, useState } from "react";
 import Typewriter from "typewriter-effect";
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Classifier = () => {
 
+  const [model, setModel] = useState("vgg19");
   const [result, setResult] = useState("");
-
   const [imageFile, setImageFile] = useState(false);
   const [image, setImage] = useState(false);
   const [imagePrediction, setImagePrediction] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  });
+
+  const handleSwitch = async (model) => {
+
+    setLoading(true)
+    setModel(model)
+    setTimeout(() => setLoading(false), 1000);
+
+    const response = await fetch('/switch', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({model_type: model})
+    });
+
+    if (response.status === 200) {
+      console.log('success')
+    } else {
+      console.log('failed')
+    }
+  }
 
   const handleFileInput = (event) => {
     setImagePrediction(false);
@@ -74,10 +100,49 @@ const Classifier = () => {
               }}
             />
           </h1>
-          <img className='feedContent'
-            src="http://localhost:5000/video_feed"
-            alt="Video">
-          </img>
+          <Button
+            variant="contained"
+            component="span"
+            onClick={() => handleSwitch('cnn')}
+            style={{ backgroundColor: model == 'cnn' ? "#e0a80d" : "transparent", color: 'white', borderRadius: 50, border: '2px solid', borderColor: "#e0a80d", marginLeft: '20px' }}>
+            CNN
+          </Button>
+          <Button
+            variant="contained"
+            component="span"
+            onClick={() => handleSwitch('vgg16')}
+            style={{ backgroundColor: model == 'vgg16' ? "#e0a80d" : "transparent", color: 'white', borderRadius: 50, border: '2px solid', borderColor: "#e0a80d", marginLeft: '20px' }}>
+            VGG-16
+          </Button>
+          <Button
+            variant="contained"
+            component="span"
+            onClick={() => handleSwitch('vgg19')}
+            style={{ backgroundColor: model == 'vgg19' ? "#e0a80d" : "transparent", color: 'white', borderRadius: 50, border: '2px solid', borderColor: "#e0a80d", marginLeft: '20px' }}>
+            VGG-19
+          </Button>
+          <Button
+            variant="contained"
+            component="span"
+            onClick={() => handleSwitch('incepv3')}
+            style={{ backgroundColor: model == 'incepv3' ? "#e0a80d" : "transparent", color: 'white', borderRadius: 50, border: '2px solid', borderColor: "#e0a80d", marginLeft: '20px' }}>
+            Inception V3
+          </Button>
+          <Button
+            variant="contained"
+            component="span"
+            onClick={() => handleSwitch('rn')}
+            style={{ backgroundColor: model == 'rn' ? "#e0a80d" : "transparent", color: 'white', borderRadius: 50, border: '2px solid', borderColor: "#e0a80d", marginLeft: '20px' }}>
+            RESNET50
+          </Button>
+          {loading
+            ? <div className='spinner'> <CircularProgress /><br />Loading model...</div>
+            :
+            <img className='feedContent'
+              src="http://localhost:5000/video_feed"
+              alt="Video">
+            </img>
+          }
           {/* <div className='imageUploadInput'>
             <input
               type="file"

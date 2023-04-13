@@ -83,6 +83,10 @@ section {
   display: flex;
 }
 
+.spinner {
+  margin-top: 20px;
+}
+
 /*---------hero-------------*/
 .hero {
   position: relative;

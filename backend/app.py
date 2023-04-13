@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, Response
 from reverseProxy import proxyRequest
-from classifier import classifyImage, gen_frames
+from classifier import classifyImage, gen_frames, switchModel
 
 MODE = os.getenv('FLASK_ENV')
 DEV_SERVER_URL = 'http://localhost:3000/'
@@ -82,7 +82,14 @@ def gen_frames():
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
+@app.route('/switch', methods=['POST'])
+def switch():
+    if (request.json['model_type']): 
+        model_type = request.json['model_type']
+        switchModel(model_type)
+        app.logger.info('Current model: ' + model_type)
+        return {'current model': model_type}
+    
 # @app.route('/')
 # def index():
 #     """Video streaming home page."""
