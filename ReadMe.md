@@ -3,6 +3,7 @@ IS4242 Intelligent Systems and Techniques Group Project
 Note: Due to the large size of the dataset and models, they have exceeded the limit for storage on GitHub. Therefore, we will provide a link to the external storage location where they can be accessed. Only the Train folder in the dataset will contain images, this is because the images will be shifted to the test and validation folder during model training and testing. 
 - Link to the dataset: https://drive.google.com/drive/folders/1tZ0w1-zcuxzZ95uaLy9zLA9Zvn4dm0D6
 - Link to the models used: https://drive.google.com/drive/folders/1VKKxMlpr_E7ndMadFKkqE30Jm-mZuaWz
+- Link to the original notebook on Colab: https://colab.research.google.com/drive/1qiPEeHSTsHDvNnPh35In-useY6dpueh-
  
 
 Running of ipynb File
